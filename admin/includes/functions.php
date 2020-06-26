@@ -15,5 +15,11 @@ function autoload($class) {
         die("{$class}.php not found");
     }
         
-            
+
+}
+
+function redirect($location){
+
+    header("Location: {$location}"); 
+
 }

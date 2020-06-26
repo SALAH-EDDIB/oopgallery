@@ -53,6 +53,26 @@ class User {
         return $user ;
     }
 
+    public static function verify_user($username , $password){
+        global $database ;
+
+        $username = $database->escape_string($username);
+        $password = $database->escape_string($password);
+
+        $sql = "SELECT * from users where ";
+        $sql .= "username = '{$username}' ";
+        $sql .= " and password = '{$password}' ";
+        $sql .= " limit 1 ";
+
+        $result_array = self::find_this_query($sql) ;
+
+        return !empty($result_array) ?  $result_array[0] :  false ;
+        
+
+
+
+    }
+
 private function has_the_attribute($key){
 
     $object_properties = get_object_vars($this);
