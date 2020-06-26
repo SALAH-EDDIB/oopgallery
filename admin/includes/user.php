@@ -67,7 +67,7 @@ class User {
         $result_array = self::find_this_query($sql) ;
 
         return !empty($result_array) ?  $result_array[0] :  false ;
-        
+
 
 
 
